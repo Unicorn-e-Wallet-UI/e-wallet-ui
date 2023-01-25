@@ -1,0 +1,23 @@
+/* root font size = 16px */
+.page-container{
+        /* background-color: pink; */
+        margin: 3rem 15rem auto;
+        min-width: 35rem ;
+        max-width: 70rem ;
+        min-height: 30rem;
+        max-height: 40rem;
+        display: flex;
+        justify-content: center;
+}
+
+.images-section{
+    max-width: 50%;
+    overflow: hidden;
+}
+
+
+.form-section{
+    width: 50%;
+    padding: 1.5rem;
+}
+
