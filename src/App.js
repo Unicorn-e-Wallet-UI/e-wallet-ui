@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import RegistrationPageOne from './component/pages/Registration-pages/verification/kycFormsPageOne/kycPageOne';
+import RegistrationPageTwo from './component/pages/Registration-pages/verification/kycFormsPageTwo/kycPageTwo';
+import {Routes,Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+        <Route exact path='/registration-page-one' element={<RegistrationPageOne />}  />
+        <Route exact path='/registration-page-two' element={<RegistrationPageTwo />}  />
+    </Routes>
   );
+  ;
 }
 
 export default App;
