@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./input.css";
 
 const InputFields = ({name, value, handleChange, holder}) => {
