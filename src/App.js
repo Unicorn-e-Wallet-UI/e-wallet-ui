@@ -6,9 +6,8 @@ import {Routes,Route} from "react-router-dom";
 function App() {
   return (
     <Routes>
-        <Route path='/registration-page-one' element={<RegistrationPageOne />}  />
-        <Route path='/registration-page-two' element={<RegistrationPageTwo />}  />
-
+        <Route exact path='/registration-page-one' element={<RegistrationPageOne />}  />
+        <Route exact path='/registration-page-two' element={<RegistrationPageTwo />}  />
     </Routes>
   );
   ;

@@ -1,0 +1,12 @@
+.next-of-kin, .bvn{
+    border-top: 1px solid black;
+    font-family: Roboto;
+    padding: 0.5rem;
+}
+.bvn{
+    margin-top: 1rem;
+}
+
+.prev{
+   padding: 1rem; 
+}

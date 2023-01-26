@@ -21,6 +21,7 @@ const RegistrationPageOne = () => {
 const [selectChange, setSelectChange] = useState("NIN");
 
 const handleChange = (event) => {
+    event.preventDefault();
     const {name, value} = event.target;
     setRegData(prevValue => {
       return {...prevValue, "identification": selectChange}
