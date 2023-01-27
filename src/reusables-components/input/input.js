@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./input.css";
 
-const InputFields = ({name, value, handleChange, holder}) => {
+const InputFields = ({name, value, handleChange, holder,type}) => {
 
     return (
         <input 
@@ -9,6 +9,7 @@ const InputFields = ({name, value, handleChange, holder}) => {
         placeholder={holder} 
         className="reuse-input" 
         value={value}
+        type={type}
         onChange={(event) => handleChange(event)} />
     )
 }
