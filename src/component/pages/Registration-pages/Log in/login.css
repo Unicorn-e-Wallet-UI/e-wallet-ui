@@ -1,0 +1,52 @@
+.welcome{
+    text-align: center;
+
+}
+
+.dashB{
+    text-align: center;
+ }
+
+ .me{
+    display: flex;
+ }
+
+.remember{
+    display: flex;
+}
+
+.box{
+    width: 25px;
+    height: 22px;
+    margin: 1rem;
+    margin-left: rem;
+ 
+    
+ }
+
+ span{
+
+    margin-left: 69px;
+    color: rgb(182, 24, 182);
+ }
+
+ .remember{
+    margin-left:-16px;
+ }
+
+.dont{  
+    display: flex;  
+    justify-content: space-between;
+}
+
+.dontText{
+    opacity: 50%;
+    margin-left: 15px;
+}
+
+.up, a{
+    margin: 1rem;
+}
+.meText{
+  opacity: 80%;  
+} 
