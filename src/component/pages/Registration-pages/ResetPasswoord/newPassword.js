@@ -28,7 +28,7 @@ const EnterNewPassword = () => {
             <div className="reset-password-box">
               <object data={resetBox} width="100px"></object>
               <p>Enter New Password</p>
-              <InputFields name={"emailAddress"}  value={data}  handleChange={handleChange}  holder={"Email Address"} />
+              <InputFields name={"emailAddress"}  value={data}  handleChange={handleChange}  holder={"Enter new Password"} />
             </div>
             <RButtons handleAction={handleChange}>
               <p>Reset</p>
