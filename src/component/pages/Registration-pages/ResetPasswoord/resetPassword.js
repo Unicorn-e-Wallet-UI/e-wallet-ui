@@ -10,7 +10,7 @@ import ModalBox from "../../../../reusables-components/modals/modal";
 
 const ResetPassword = () => {
 
-  const [modalState, setModalState] = useState(true);
+  const [modalState, setModalState] = useState(false);
   const [data, setData] = useState("");
 
   const parentStyles = {minWidth :"100%", minHeight : "100%", top: 0, left:0, }
@@ -26,8 +26,27 @@ const ResetPassword = () => {
   }
   const handleModalclose = (e) => {
     e.preventDefault();
-    setModalState(false);
+    setModalState(true);
+    setTimeout(() => navigate("/get-otp"), 5000)
+    // console.log("Kelechi is here")
+    // setTimeout(() => console.log("banke is a bad girl"), 2000);
+    // console.log("We love react");
+   
+
   };
+
+const handleFalseModal = (e) => {
+  e.preventDefault();
+  console.log("hi");
+}
+//  const handleNavigate = async (e) => {
+//    e.preventDefault();
+//    setTimeout(() => {
+//      setModalState(true);
+//    }, 2000);
+//    await navigate("/get-otp");
+//  };
+  
   
 
     return (
@@ -37,7 +56,7 @@ const ResetPassword = () => {
             <>
             <form>
               {modalState && <ModalBox Parent_styles={parentStyles} Child_styles={childStyles} 
-                 handleClick={handleModalclose}>
+                 handleClick={handleFalseModal}>
                 <p>check your mail for your OTP number</p>
               </ModalBox>}
             <div className="reset-password-box">
@@ -46,7 +65,7 @@ const ResetPassword = () => {
               <p>Enter Email Address to reset Password</p>
               <InputFields name={"emailAddress"} value={data} handleChange={handleChange} holder={"Email Address"}/>
             </div>
-                 <RButtons handleAction={(e) => {e.preventDefault(); navigate("/get-otp")}} ><p>Next</p></RButtons>
+                 <RButtons handleAction={handleModalclose} ><p>Next</p></RButtons>
             </form>
             <Link to={" "}>
             <div style={{textAlign: "right", fontFamily:"Roboto", }}><p>Cancel</p></div>
