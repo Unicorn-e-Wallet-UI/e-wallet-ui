@@ -1,7 +1,6 @@
 import Container from "../../../../reusables-components/container/container";
 import forgetPassword from "../../../../assets/images/resetPassword.png";
 import "./resetPassword.css";
-import PasswordBox from "../../../../reusables-components/splitInput/passwordInput";
 import resetBox from "../../../../assets/svgs/resetFlow1.svg";
 import { useState } from "react";
 import InputFields from "../../../../reusables-components/input/input";
@@ -28,7 +27,7 @@ const EnterNewPassword = () => {
             <div className="reset-password-box">
               <object data={resetBox} width="100px"></object>
               <p>Enter New Password</p>
-              <InputFields name={"emailAddress"}  value={data}  handleChange={handleChange}  holder={"Email Address"} />
+              <InputFields name={"emailAddress"}  value={data}  handleChange={handleChange}  holder={"Enter new Password"} />
             </div>
             <RButtons handleAction={handleChange}>
               <p>Reset</p>
@@ -46,12 +45,3 @@ const EnterNewPassword = () => {
 };
 
 export default EnterNewPassword;
-
-// handle state for split check field
-
-// const [inputState, setInputState] = useState("");
-// console.log(inputState);
-// const handleChange = (event) => {
-//   let value =  event.target.value + " ";
-//   setInputState(prevValue => prevValue + value);
-// }
