@@ -1,16 +1,13 @@
-import { useContext, useState} from "react";
+import { useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import imageOne from "../../../../../assets/images/KYC-One.png";
 import RButtons from "../../../../../reusables-components/buttons/button";
 import Container from "../../../../../reusables-components/container/container";
 import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
-import  { RegContextConsumer }  from "../../../../../Context/context";
 import "./kycPageTwo.css";
 
 const RegistrationPageTwo = () => {
-
-  // const dataFromPageOne = useContext(RegDatacontext);
 
     const [regData, setRegData] = useState({
         fullName:"",
@@ -19,11 +16,8 @@ const RegistrationPageTwo = () => {
         relationship:"",
         bvn:""
     })
-    // const ctx = useContext(RegContextConsumer)
-    // console.log(ctx)
 
     const location = useLocation()
-    console.log(location.state)
     
     const handleChange = (event) => {
             event.preventDefault();
@@ -32,12 +26,11 @@ const RegistrationPageTwo = () => {
                 return {...prevValue, [name]:value}
             })
             console.log(regData)
-            // console.log(dataFromPageOne);
+             console.log(location.state);
     }
 
     return (
       <>
-      {/* <div>{dataFromPageOne}</div> */}
         <Container
           images={
             <img style={{ width: "100%" }} src={imageOne} alt="imageOne" />

@@ -1,13 +1,10 @@
-import { createContext, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useState } from "react"
 import imageOne from "../../../../../assets/images/KYC-One.png";
 import Container from "../../../../../reusables-components/container/container";
 import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
 import { Link } from "react-router-dom";
 import "./kycPageOne.css"
-import  { RegContextProvider } from "../../../../../Context/context";
-
 
 const RegistrationPageOne = () => {
 
@@ -19,16 +16,9 @@ const RegistrationPageOne = () => {
     expiryDate:"",
     cvv:""
   })
-  const navigate = useNavigate();
+
 const [selectChange, setSelectChange] = useState("NIN");
 
-const handlePush = () =>{
-  navigate("/registration-page-two",{
-    state: {
-      regData: regData
-    }
-  })
-}
 const handleChange = (event) => {
     event.preventDefault();
     const {name, value} = event.target;
@@ -48,7 +38,6 @@ const handleChange = (event) => {
 
     return (
       <>
-      {/* <RegContextProvider value={regData}> */}
         <Container
           images={
             <img style={{ width: "100%" }} src={imageOne} alt="imageOne" />
@@ -78,13 +67,11 @@ const handleChange = (event) => {
               </form>
 
               <div className="next-page2">
-                   {/* <Link to={"/registration-page-two"}> Next</Link>         */}
-                   <p onClick={handlePush}>Next</p>
+                   <Link to={"/registration-page-two"} state={regData}> Next</Link>        
                </div>
             </>
           }
         />
-        {/* </RegContextProvider> */}
       </>
     );
 }
