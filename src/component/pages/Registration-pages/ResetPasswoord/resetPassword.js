@@ -27,11 +27,7 @@ const ResetPassword = () => {
   const handleModalclose = (e) => {
     e.preventDefault();
     setModalState(true);
-    setTimeout(() => navigate("/get-otp"), 5000)
-    // console.log("Kelechi is here")
-    // setTimeout(() => console.log("banke is a bad girl"), 2000);
-    // console.log("We love react");
-   
+    setTimeout(() => navigate("/get-otp"), 2000)
 
   };
 
@@ -39,14 +35,7 @@ const handleFalseModal = (e) => {
   e.preventDefault();
   console.log("hi");
 }
-//  const handleNavigate = async (e) => {
-//    e.preventDefault();
-//    setTimeout(() => {
-//      setModalState(true);
-//    }, 2000);
-//    await navigate("/get-otp");
-//  };
-  
+
   
 
     return (
