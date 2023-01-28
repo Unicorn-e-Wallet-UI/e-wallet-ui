@@ -6,6 +6,7 @@ import Container from "../../../../../reusables-components/container/container";
 import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
 import "./kycPageTwo.css";
+import axios from "axios";
 
 const RegistrationPageTwo = () => {
 
@@ -22,11 +23,33 @@ const RegistrationPageTwo = () => {
     const handleChange = (event) => {
             event.preventDefault();
             const {name, value} = event.target;
-            setRegData(prevValue => {
+            setRegData(prevValue => { 
                 return {...prevValue, [name]:value}
             })
             console.log(regData)
              console.log(location.state);
+    }
+
+    const handleSubmit = (e) => {
+      const buildRegData = {
+        userId:"65226428729728792782",
+        homeAddress: location.state.address,
+        bvn:regData.bvn,
+        nextOfKin: {
+          nextOfKinFullName:regData.fullName,
+          emailAddress:regData.emailAddress,
+          phoneNumber:regData.phoneNumber,
+          relationship:regData.relationship,
+        },
+        cardType:location.state.identification
+      };
+      
+      e.preventDefault();
+      console.log(regData)
+
+      axios.post("http://localhost:3000/User", buildRegData)
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
     }
 
     return (
@@ -45,7 +68,7 @@ const RegistrationPageTwo = () => {
             <InputFields name={"relationship"} value={regData.relationship} handleChange={handleChange} holder={"Relationship"}  />
             <div className="bvn">BVN</div>
             <InputFields name={"bvn"} value={regData.bvn} handleChange={handleChange} holder = {"BVN "} />
-            <RButtons><p>Continue</p></RButtons>
+            <RButtons handleAction={handleSubmit}><p>Continue</p></RButtons>
             <Link to={"/registration-page-one"}>
                    <div className="prev">Prev</div>
             </Link>
