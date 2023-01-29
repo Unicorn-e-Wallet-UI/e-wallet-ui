@@ -7,6 +7,7 @@ import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
 import "./kycPageTwo.css";
 import axios from "axios";
+import ModalBox from "../../../../../reusables-components/modals/modal";
 
 const RegistrationPageTwo = () => {
 
@@ -17,6 +18,10 @@ const RegistrationPageTwo = () => {
         relationship:"",
         bvn:""
     })
+
+  const parentStyles = {minWidth :"100%", minHeight : "100%", top: 0, left:0, }
+
+  const childStyles = { width: "20rem", height: "5rem", top: "40%", left: "18%" }
 
     const location = useLocation()
     
@@ -52,6 +57,12 @@ const RegistrationPageTwo = () => {
       .catch(err => console.log(err));
     }
 
+    const handleFalseModal = (e) => {
+      e.preventDefault();
+      console.log("hi");
+    };
+
+
     return (
       <>
         <Container
@@ -60,7 +71,12 @@ const RegistrationPageTwo = () => {
           }
           forms={
             <>
+            <form>
+           
             <KycHeader page={"2 of 3"} info={"More Page About you"}/>
+             <ModalBox ParentStyles={parentStyles} Child_styles={childStyles} handleClick={handleFalseModal}>
+              <div>success</div>
+            </ModalBox>
             <div className="next-of-kin">Next of Kin</div>
             <InputFields name={"fullName"} value={regData.fullName} handleChange={handleChange} holder={"Full Name"}  />
             <InputFields name={"emailAddress"} value={regData.emailAddress} handleChange={handleChange} holder={"Email Address"}  />
@@ -72,6 +88,7 @@ const RegistrationPageTwo = () => {
             <Link to={"/registration-page-one"}>
                    <div className="prev">Prev</div>
             </Link>
+            </form>
          
             </>
           }
