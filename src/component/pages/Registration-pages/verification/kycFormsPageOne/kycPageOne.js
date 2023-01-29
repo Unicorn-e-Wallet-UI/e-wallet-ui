@@ -5,6 +5,7 @@ import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
 import { Link } from "react-router-dom";
 import "./kycPageOne.css"
+import RegistrationPageTwo from "../kycFormsPageTwo/kycPageTwo";
 
 const RegistrationPageOne = () => {
 
@@ -38,6 +39,7 @@ const handleChange = (event) => {
 
     return (
       <>
+      {false && <RegistrationPageTwo data={regData} />}
         <Container
           images={
             <img style={{ width: "100%" }} src={imageOne} alt="imageOne" />
