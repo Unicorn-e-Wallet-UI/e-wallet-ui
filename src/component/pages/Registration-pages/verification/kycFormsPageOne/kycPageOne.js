@@ -11,14 +11,13 @@ const RegistrationPageOne = () => {
 
   const [regData, setRegData] = useState({
     identification:"",
-    kyc: "",
     address: "",
     cardName: "",
     cardNumber:"",
     expiryDate:"",
     cvv:""
   })
-  
+
 const [selectChange, setSelectChange] = useState("NIN");
 
 const handleChange = (event) => {
@@ -54,8 +53,8 @@ const handleChange = (event) => {
                   <p>Select a Form of Identification</p>
                   <select value={selectChange} onChange={handleSelectChange}>
                     <option value="NIN">NIN</option>
-                    <option value="Driver License">Driver's License</option>
-                    <option value="Voters Card">Voters Card</option>
+                    <option value="DRIVERS_LICENCE">Driver's License</option>
+                    <option value="VOTERS_CARD">Voters Card</option>
                   </select>
                   <InputFields name={"address"} value={regData.address} handleChange={handleChange} holder={"Address"} />
                 </div>
@@ -70,7 +69,7 @@ const handleChange = (event) => {
               </form>
 
               <div className="next-page2">
-                   <Link to={"/registration-page-two"}> Next</Link>        
+                   <Link to={"/registration-page-two"} state={regData}> Next</Link>        
                </div>
             </>
           }

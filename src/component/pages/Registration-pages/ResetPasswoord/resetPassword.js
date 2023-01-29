@@ -44,7 +44,7 @@ const handleFalseModal = (e) => {
         forms={
             <>
             <form>
-              {modalState && <ModalBox Parent_styles={parentStyles} Child_styles={childStyles} 
+              { <ModalBox Parent_styles={parentStyles} Child_styles={childStyles} 
                  handleClick={handleFalseModal}>
                 <p>check your mail for your OTP number</p>
               </ModalBox>}

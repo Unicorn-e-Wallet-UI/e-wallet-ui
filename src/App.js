@@ -2,7 +2,7 @@ import './App.css';
 import RegistrationPageOne from './component/pages/Registration-pages/verification/kycFormsPageOne/kycPageOne';
 import RegistrationPageTwo from './component/pages/Registration-pages/verification/kycFormsPageTwo/kycPageTwo';
 import LoginPage from './component/pages/Registration-pages/Log in/login';
-import SignUpPage from './component/pages/Registration-pages/signUp/signup';
+import SignUpPage from './component/pages/Registration-pages/sign up/signup';
 import ResetPassword from './component/pages/Registration-pages/ResetPasswoord/resetPassword';
 import EnterOTPPage from './component/pages/Registration-pages/OTP/otp';
 import EnterNewPassword from './component/pages/Registration-pages/ResetPasswoord/newPassword';
