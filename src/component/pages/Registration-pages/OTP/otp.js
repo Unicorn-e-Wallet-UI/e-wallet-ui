@@ -15,9 +15,6 @@ const EnterOTPPage = () => {
     const handleChange = (event) => {
         let value = event.target.value + "";
         setPassword(prevValue => prevValue + value);
-        navigate("/new-password")
-        console.log(password)
-
     }
 
     return (
@@ -30,9 +27,10 @@ const EnterOTPPage = () => {
                 <object data={resetLine} style={{ width: "100px" }}></object>   
                 <p>Enter your OTP Number</p>
                 <PasswordBox handleChange={handleChange} />
-                <RButtons handleAction={handleChange}><p>Continue</p></RButtons>
+                <RButtons handleAction={(e) => {e.preventDefault(); navigate("/new-password")} }>
+                    <p>Continue</p>
+                </RButtons>
                  <div style={{textAlign: "right", fontFamily:"Roboto", }}><p>Cancel</p></div>
-           
               </div>
             </form>
           </>
