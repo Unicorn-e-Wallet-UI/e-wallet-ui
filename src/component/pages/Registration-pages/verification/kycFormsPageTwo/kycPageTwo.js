@@ -7,7 +7,7 @@ import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
 import "./kycPageTwo.css";
 
-const RegistrationPageTwo = () => {
+const RegistrationPageTwo = ({data}) => {
     const [regData, setRegData] = useState({
         fullName:"",
         emailAddress:"",
@@ -24,6 +24,7 @@ const RegistrationPageTwo = () => {
                 return {...prevValue, [name]:value}
             })
             console.log(regData)
+            console.log(data);
     }
 
     return (
