@@ -63,7 +63,7 @@ const LoginPage = () => {
 
                     <div className="dont">
                         <p className="dontText">Don't have an Account?</p>
-                        <a className="Up" href="registration-page-one">Sign Up</a>
+                        <a className="Up" href="signup-page">Sign Up</a>
                     </div>
                     
                     
