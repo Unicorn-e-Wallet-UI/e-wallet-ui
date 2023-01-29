@@ -1,0 +1,17 @@
+.signup-header{
+    text-align: center;
+    padding-top:30px;
+}
+.signup-header p,h2{
+    margin: 3px;
+    padding: 5px;
+}
+.signup-header p{
+    margin-bottom: 20px;
+}
+
+.login-reroute{
+    display: flex;
+    column-gap: 8rem;
+    margin: 0;
+}
