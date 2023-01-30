@@ -25,9 +25,10 @@ const SignUpPage = () => {
         setSignUpResponse(prevValue => {
             return{...prevValue, [name]:value}
         })
+        console.log(signupData)
 
  }
-        const handleFieldData = () => {
+        const checkFieldData = () => {
             let getDataValues = Object.values(signupData);
             for (let vals of getDataValues) {
                 if (vals === "") return false;
@@ -37,7 +38,7 @@ const SignUpPage = () => {
 
         const handleSignUp = (e) => {
           e.preventDefault();
-          if (!handleFieldData()){
+          if (!checkFieldData()){
             alert("All fields must be filled")
             return false;
         }
@@ -47,7 +48,7 @@ const SignUpPage = () => {
                 if (res.status === 201){
                     console.log(res)
                     setModalStatus(true)
-                    setTimeout(()=> navigate("/verify-otp"), 2000);
+                    setTimeout(()=> navigate("/verify-account", {state: {data:signupData.email}}), 2000);
                 }   
             })
             .catch((err) => console.log(err.status));

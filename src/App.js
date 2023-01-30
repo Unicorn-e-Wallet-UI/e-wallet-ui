@@ -7,6 +7,7 @@ import ResetPassword from './component/pages/Registration-pages/ResetPasswoord/r
 import EnterOTPPage from './component/pages/Registration-pages/OTP/otp';
 import EnterNewPassword from './component/pages/Registration-pages/ResetPasswoord/newPassword';
 import {Routes, Route} from 'react-router-dom'
+import VerifyAccount from './component/pages/Registration-pages/verification/AccountVerificationPage(OTP)/verifyAccount';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='/registration-page-two' element={<RegistrationPageTwo />}  />
         <Route exact path='/login-page' element={<LoginPage/>} />
         <Route exact path='/signup-page' element={<SignUpPage/>}/>
+        <Route exact path='/verify-account' element = {<VerifyAccount />} />
     </Routes>
   );
   ;

@@ -12,6 +12,12 @@
 
 .login-reroute{
     display: flex;
-    column-gap: 8rem;
+    justify-content: space-between;
+    column-gap: 11rem;
     margin: 0;
+}
+
+.login-reroute p {
+    font-size: 12pt;
+    margin-left: 15px;
 }

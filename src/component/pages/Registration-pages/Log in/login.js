@@ -34,7 +34,7 @@ const LoginPage = () => {
     return(
         <>
         <Container 
-        images={<img src={LoginImage} style={{width:"100%"}} alt="login-BG" />}
+        images={<img src={LoginImage} style={{width:"110%"}} alt="login-BG" />}
         forms={
             <>
             <form>
