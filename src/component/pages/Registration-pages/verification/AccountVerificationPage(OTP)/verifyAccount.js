@@ -1,22 +1,36 @@
 import Container from "../../../../../reusables-components/container/container";
 import VerifyOTPImage from "../../../../../assets/images/signup.png"
 import PasswordBox from "../../../../../reusables-components/splitInput/passwordInput";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import RButtons from "../../../../../reusables-components/buttons/button";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ModalBox from "../../../../../reusables-components/modals/modal";
 
+const reducer = (state,action) => {
+    switch (action.type) {
+        case "SUCCESS" :
+            return {status: state.status = true , message: state.message = "Your account has been succesfully verified"}
+        case "ERROR" :
+            return {status: state.status = true, message: state.message = "Error verifying your account, kindly Retry!"}
+        case "LAST STATE" :
+             return {status: state.status = false, message: state.message = ""}
+        default :
+             return state;
+    }
+}
+
 const VerifyAccount = () => {
 
     const [OTP, setOTP] = useState("");
-    const [modalStatus, setModalStatus] = useState(false);
+    const [state, dispatch] = useReducer(reducer, {status:false, message: ""});
     const navigate  = useNavigate();
     const location = useLocation();
 
     const parentStyles = {minWidth :"100%", minHeight : "100%", top: 0, left:0, }
     const childStyles = { width: "20rem", height: "5rem", top: "40%", left: "10%"}
     console.log(OTP);
+
     const url = "http://localhost:3000/OTP";
 
     const handleChange = (e) => {
@@ -33,18 +47,23 @@ const VerifyAccount = () => {
     const handleSubmit = (e) => {
         const tokenData = {
           token: OTP,
-          email: location.state.data,
+          emailAddress: location.state.data,
         };
         if (OTP.length !== 4) {
             alert("All boxes must be filled")
             return;
-        }
+         }
         axios.post(url,tokenData )
         .then((res) => {
-            if (res.status === 201){
-              setModalStatus(true);
-              console.log(tokenData);
-              handleStatus(e);
+            if (res.data.statusCode === "OK"){
+                console.log(res);
+                dispatch ({type: "SUCCESS"})
+                setTimeout(() => handleStatus(e), 2000);
+                console.log(tokenData);
+            }else{
+              dispatch({type: "ERROR"});
+              console.log("error");
+              setTimeout(() => dispatch({ type: "LAST STATE" }), 3000);
             }
         })
         .catch((err) => console.log(err))
@@ -56,8 +75,8 @@ const VerifyAccount = () => {
              images={<img src={VerifyOTPImage} style={{width:"110%"}} alt="Sigupimage"/>}
              forms={
                 <>
-                {modalStatus && <ModalBox Parent_styles={parentStyles} Child_styles={childStyles} handleClick={handleStatus}>
-                    <p>Your Account has been Successfully Verified</p>
+                {state.status && <ModalBox Parent_styles={parentStyles} Child_styles={childStyles} handleClick={handleStatus}>
+                    <p>{state.message}</p>
                 </ModalBox>}
                 <div style=
                 {{marginTop:"45%", 
