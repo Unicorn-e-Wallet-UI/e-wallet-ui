@@ -27,7 +27,6 @@ const LoginPage = () => {
         e.preventDefault();
 
         axios.post(loginUrl, loginData)
-        
             .then((res) => console.log(res))
             .catch((err) => console.log(err))
     }
@@ -35,7 +34,7 @@ const LoginPage = () => {
     return(
         <>
         <Container 
-        images={<img src={LoginImage} style={{width:"100%"}} alt="login-BG" />}
+        images={<img src={LoginImage} style={{width:"110%"}} alt="login-BG" />}
         forms={
             <>
             <form>
@@ -44,7 +43,6 @@ const LoginPage = () => {
                     <p className="dashB">Log in to your Dashboard</p>
                     
                     <div className="login-input-field">
-                       
                         <InputFields name={"emailAddress"} type={"email"} value={loginData.email} holder={"Email:"}handleChange={handleChange}/>
                         <p></p>
                         <p></p>
@@ -52,17 +50,18 @@ const LoginPage = () => {
                     </div>
 
                     <div className="me">  
-                    <input className="box" type= "checkbox"/>                                       
-                          <p className="remember">Remember me</p>
-                          <p><span>i</span>Forgot Password</p>
-
+                    <label> 
+                        <input className="box" type= "checkbox"/>  
+                        <span>Remember me</span>
+                    </label>                                     
+                          <p><strong>i</strong>Forgot Password</p>
                     </div>
 
-                    <RButtons><p>Login</p></RButtons>
+                    <RButtons handleAction={handleLogin}><p>Login</p></RButtons>
 
                     <div className="dont">
                         <p className="dontText">Don't have an Account?</p>
-                        <a className="Up" href="registration-page-one">Sign UP</a>
+                        <a className="Up" href="signup-page">Sign Up</a>
                     </div>
                     
                     

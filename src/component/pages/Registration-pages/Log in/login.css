@@ -1,14 +1,33 @@
+.login-page{
+    padding-top:2rem ;
+}
 .welcome{
     text-align: center;
+}
 
+.login-input-field{
+    margin-right: 1rem;
+}
+.login-page label span{
+  padding: 0 0 90px 0;
+}
+.me label{
+    padding-top: 10px;
 }
 
 .dashB{
     text-align: center;
+   margin: 1rem 1rem 1rem 1rem;
  }
 
  .me{
     display: flex;
+    justify-content: space-between;
+    align-content: center;
+    /* border: 1px solid green; */
+ }
+ .me p{
+    margin-right: 13px;
  }
 
 .remember{
@@ -18,17 +37,10 @@
 .box{
     width: 25px;
     height: 22px;
-    margin: 1rem;
-    margin-left: rem;
- 
-    
+    position: relative;
+    top:3.5px;    
  }
 
- span{
-
-    margin-left: 69px;
-    color: rgb(182, 24, 182);
- }
 
  .remember{
     margin-left:-16px;

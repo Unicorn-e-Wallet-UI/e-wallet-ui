@@ -9,6 +9,7 @@ const InputFields = ({name, value, handleChange, holder,type}) => {
         className="reuse-input" 
         value={value}
         type={type}
+        required
         onChange={(event) => handleChange(event)} />
     )
 }
