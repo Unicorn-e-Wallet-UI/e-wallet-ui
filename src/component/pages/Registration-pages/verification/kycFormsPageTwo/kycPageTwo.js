@@ -32,7 +32,6 @@ const RegistrationPageTwo = () => {
                 return {...prevValue, [name]:value}
             })
             console.log(regData)
-             console.log(location.state);
     }
 
     const handleSubmit = (e) => {
