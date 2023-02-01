@@ -20,7 +20,6 @@ const RegistrationPageTwo = () => {
     })
 
   const parentStyles = {minWidth :"100%", minHeight : "100%", top: 0, left:0, }
-
   const childStyles = { width: "20rem", height: "5rem", top: "40%", left: "18%" }
 
     const location = useLocation()
