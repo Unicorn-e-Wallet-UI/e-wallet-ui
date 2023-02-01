@@ -9,11 +9,11 @@ import axios from "axios";
 const LoginPage = () => {
 
     const [loginData, setLoginResponse] = useState({
-        email:"",
+        emailAddress:"",
         password:"",
     });
 
-    const loginUrl = "http://localhost:3000/Login";
+    const loginUrl = "https://ff2b-154-113-161-131.eu.ngrok.io/api/v1/user/login";
 
     const handleChange = (event) => {
             const {name, value} = event.target;  
@@ -39,13 +39,11 @@ const LoginPage = () => {
             <>
             <form>
                 <div className="login-page">
-
                     <h2 className="welcome">Welcome Back!</h2>
                     <p className="dashB">Log in to your Dashboard</p>
                     
                     <div className="login-input-field">
-                       
-                        <InputFields name={"email"} type={"email"} value={loginData.email} holder={"Email:"}handleChange={handleChange}/>
+                        <InputFields name={"emailAddress"} type={"email"} value={loginData.email} holder={"Email:"}handleChange={handleChange}/>
                         <p></p>
                         <p></p>
                         <InputFields name={"password"} type={"password"} value={loginData.password} holder={"Password:"} handleChange={handleChange}/>

@@ -14,11 +14,12 @@ const SignUpPage = () => {
     const [signupData, setSignUpResponse] = useState({
         firstName:"",
         lastName:"",
-        email:"",
+        emailAddress:"",
         password:"",
     });
 
-    const SignupUrl = "http://localhost:3000/Signup";
+    // const SignupUrl = "http://localhost:3000/Signup";
+    const SignupUrl = "https://ff2b-154-113-161-131.eu.ngrok.io/api/v1/registration/register";
 
     const handleChange = (event) => {
         const {name, value} = event.target;  
@@ -45,10 +46,11 @@ const SignUpPage = () => {
 
         axios.post(SignupUrl, signupData)
             .then((res) =>  {
-                if (res.status === 201){
+                console.log(res);
+                if (res.data.statusCode === 200){
                     console.log(res)
                     setModalStatus(true)
-                    setTimeout(()=> navigate("/verify-account", {state: {data:signupData.email}}), 2000);
+                    setTimeout(()=> navigate("/verify-account", {state: {data:signupData.emailAddress}}), 2000);
                 }   
             })
             .catch((err) => console.log(err.status));
@@ -82,7 +84,7 @@ const SignUpPage = () => {
                     <div className="signup-inputfields">
                             <InputFields name={"firstName"} type={"text"} value={signupData.firstName} holder={"First Name:"} handleChange={handleChange}/>
                             <InputFields name={"lastName"} type={"text"} value={signupData.lastName} holder={"Last Name:"} handleChange={handleChange}/>
-                            <InputFields name={"email"} type={"email"} value={signupData.email} holder={"Email:"}handleChange={handleChange}/>
+                            <InputFields name={"emailAddress"} type={"email"} value={signupData.email} holder={"Email:"}handleChange={handleChange}/>
                             <InputFields name={"password"} type={"password"} value={signupData.password} holder={"Password:"} handleChange={handleChange}/>
                     </div>
                     <p></p>
