@@ -31,6 +31,7 @@ const VerifyAccount = () => {
     const childStyles = { width: "20rem", height: "5rem", top: "40%", left: "10%"}
     console.log(OTP);
 
+
 // const url = "http://localhost:3000/OTP";
     const url = "https://ff2b-154-113-161-131.eu.ngrok.io/api/v1/registration/confirm";
 
@@ -56,7 +57,7 @@ const VerifyAccount = () => {
          }
         axios.post(url,tokenData )
         .then((res) => {
-            if (res.data.statusCode === 200){
+            if (res.data.statusCode === "OK"){
                 console.log(res);
                 dispatch ({type: "SUCCESS"})
                 setTimeout(() => handleStatus(e), 2000);
