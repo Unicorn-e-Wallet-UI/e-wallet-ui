@@ -5,7 +5,7 @@ const ModalBox = ({handleClick, Child_styles, Parent_styles, ...props }) => {
     <>
       <div className="modal-box" style={Parent_styles} onClick={(e) => handleClick(e)}>
         <div className="msg-box" style={Child_styles} >
-          {props.children}{" "}
+          {props.children}
         </div>
       </div>
     </>
