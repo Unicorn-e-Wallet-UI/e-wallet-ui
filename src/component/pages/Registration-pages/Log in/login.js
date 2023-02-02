@@ -4,12 +4,16 @@ import InputFields from "../../../../reusables-components/input/input";
 import RButtons from "../../../../reusables-components/buttons/button";
 import './login.css';
 import { useState } from "react";
+import axios from "axios";
+
 const LoginPage = () => {
 
     const [loginData, setLoginResponse] = useState({
-        email:"",
+        emailAddress:"",
         password:"",
     });
+
+    const loginUrl = "https://ff2b-154-113-161-131.eu.ngrok.io/api/v1/user/login";
 
     const handleChange = (event) => {
             const {name, value} = event.target;  
@@ -19,32 +23,45 @@ const LoginPage = () => {
             console.log(loginData)
     }
 
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        axios.post(loginUrl, loginData)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
+    }
+
     return(
         <>
         <Container 
-        images={<img src={LoginImage} style={{width:"100%"}} alt="login-BG" />}
+        images={<img src={LoginImage} style={{width:"110%"}} alt="login-BG" />}
         forms={
             <>
             <form>
                 <div className="login-page">
                     <h2 className="welcome">Welcome Back!</h2>
-                    <p className="dashB">Login into Dashboard</p>
-
-                    <InputFields name={"email"} type={"email"} value={loginData.email} holder={"Email:"}handleChange={handleChange}/>
-                    <InputFields name={"password"} type={"password"} value={loginData.password} holder={"Password:"} handleChange={handleChange}/>
-
-                    <div className="me">  
-                    <input className="box" type= "checkbox"/>                                       
-                          <p className="remember">Remember me</p>
-                          <p><span>i</span>Forgot Password</p>
-
+                    <p className="dashB">Log in to your Dashboard</p>
+                    
+                    <div className="login-input-field">
+                        <InputFields name={"emailAddress"} type={"email"} value={loginData.email} holder={"Email:"}handleChange={handleChange}/>
+                        <p></p>
+                        <p></p>
+                        <InputFields name={"password"} type={"password"} value={loginData.password} holder={"Password:"} handleChange={handleChange}/>
                     </div>
 
-                    <RButtons><p>Login</p></RButtons>
+                    <div className="me">  
+                    <label> 
+                        <input className="box" type= "checkbox"/>  
+                        <span>Remember me</span>
+                    </label>                                     
+                          <p><strong>i</strong>Forgot Password</p>
+                    </div>
+
+                    <RButtons handleAction={handleLogin}><p>Login</p></RButtons>
 
                     <div className="dont">
                         <p className="dontText">Don't have an Account?</p>
-                        <a className="Up" href="registration-page-one">Sign UP</a>
+                        <a className="Up" href="signup-page">Sign Up</a>
                     </div>
                     
                     
