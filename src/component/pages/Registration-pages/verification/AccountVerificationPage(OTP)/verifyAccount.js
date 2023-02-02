@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ModalBox from "../../../../../reusables-components/modals/modal";
 
-const reducer = (state,action) => {
+const reducer = (state, action) => {
     switch (action.type) {
         case "SUCCESS" :
             return {status: state.status = true , message: state.message = "Your account has been succesfully verified"}
@@ -62,7 +62,7 @@ const VerifyAccount = () => {
                 dispatch ({type: "SUCCESS"})
                 setTimeout(() => handleStatus(e), 2000);
                 console.log(tokenData);
-            }else{
+            } else{
               dispatch({type: "ERROR"});
               console.log("error");
               setTimeout(() => dispatch({ type: "LAST STATE" }), 3000);
