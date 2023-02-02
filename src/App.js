@@ -18,6 +18,9 @@ function App() {
         <Route exact path='/login-page' element={<LoginPage/>} />
         <Route exact path='/signup-page' element={<SignUpPage/>}/>
         <Route exact path='/verify-account' element = {<VerifyAccount />} />
+        <Route exact path='/reset-password' element = {<ResetPassword />} />
+        <Route exact path='/get-otp' element = {<EnterOTPPage />} />
+        <Route exact path='/new-password' element = {<EnterNewPassword />} />
     </Routes>
   );
   ;
