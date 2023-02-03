@@ -29,6 +29,7 @@ const RegistrationPageTwo = () => {
       relationship:"",
       bvn:"",
   })
+   const url = "https://b6b1-154-113-161-131.eu.ngrok.io/api/v1/user/kyc";
 
   const [ModalStatus , setModalStatus] = useState(false);
 
@@ -92,22 +93,25 @@ const RegistrationPageTwo = () => {
     */
            
     const buildRegData = {
-              userId: "65226428729728792782",
-              homeAddress: location.state.address,
-        nextOfKin: {
-          nextOfKinFullName: regData.fullName,
-          emailAddress: regData.emailAddress,
-          phoneNumber: regData.phoneNumber,
-          relationship: regData.relationship,
-        },
-              cardType: location.state.identification,
-            };
+      userId: location.state.id,
+      bvn: regData.bvn,
+      nextOfKin: {
+        nextOfKinFullName: regData.fullName,
+        emailAddress: regData.emailAddress,
+        phoneNumber: regData.phoneNumber,
+        relationship: regData.relationship,
+      },
+      homeAddress: location.state.address,
+      cardType: location.state.identification,
+    };
 
       const checkRegData = () => {
         return (Object.values(regData).some(val => val === ""))
       }
 
     const handleSubmit = (e) => {
+      
+      console.log(buildRegData);
 
       if (checkRegData()) {
         alert("All field must be filled")
@@ -115,15 +119,17 @@ const RegistrationPageTwo = () => {
       }
       
       e.preventDefault();
-      console.log(regData)
+      console.log(buildRegData)
+      console.log(buildRegData.userId);
 
-      axios.post("http://localhost:3000/User", buildRegData)
-      .then(data => {
-        if (data.status === 201){
+      axios.post(url, buildRegData)
+      .then(res => {
+        if (res.status === 200) {
+          console.log("sent");
           setModalStatus(true);
           setTimeout(() => navigate("/login-page"), 2000);
-        }else{
-          alert("error")
+        } else {
+          alert("error");
         }
       })
       .catch(err => console.log(err));

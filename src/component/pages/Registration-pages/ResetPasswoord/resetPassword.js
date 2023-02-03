@@ -11,18 +11,25 @@ import axios from "axios";
 
 const ResetPassword = () => {
 
-  const [emailData, setEmailData] = useState("");
+  const [emailData, setEmailData] = useState({emailAddress:""});
   
   const [modalState, setModalState] = useState(false);
   const parentStyles = {minWidth :"100%", minHeight : "100%", top: 0, left:0, }
   const childStyles = { width: "20rem", height: "5rem", top: "40%", left: "18%" }
 
   const navigate = useNavigate()
+
+  const url = "https://b6b1-154-113-161-131.eu.ngrok.io/api/v1/registration/forgottenPassword";
  
   const handleChange = (event) => {
     event.preventDefault();
-    let value = event.target.value
-    setEmailData(value)
+    const {name, value} = event.target;
+
+    setEmailData(prevValue => {
+      return {...prevValue, [name]: value}
+    })
+
+    console.log(emailData);
   }
 
   const checkMailInput = () => {
@@ -33,12 +40,20 @@ const ResetPassword = () => {
     if (!checkMailInput()) return alert("Field can't be empty!")
     e.preventDefault();
     
-      axios.post("  http://localhost:3000/RESETPASSWORD", emailData)
-        .then(res => console.log(res.data))
+      axios.post(url, emailData)
+        .then(res => {
+          console.log(res);
+          if (res.status === 200){
+            console.log(res);
+             setModalState(true);
+            setTimeout(() => navigate("/get-otp", {state:{mail:emailData.emailAddress}}), 2000);
+          }
+        }
+        )
         .catch(err => console.log(err));
         
-      setModalState(true);
-      setTimeout(() => navigate("/get-otp"), 2000)
+     
+      
 
   };
 
@@ -58,7 +73,7 @@ const ResetPassword = () => {
             <div className="reset-password-box">
               <p>Reset Password</p>
               <p>Enter Email Address to reset Password</p>
-              <InputFields name={"emailAddress"} value={emailData} handleChange={handleChange} holder={"Email Address"}/>
+              <InputFields name={"emailAddress"} value={emailData.emailAddress} handleChange={handleChange} holder={"Email Address"}/>
             </div>
                  <RButtons handleAction={handleSubmit} ><p>Next</p></RButtons>
             </form>

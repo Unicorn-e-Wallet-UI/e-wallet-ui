@@ -7,7 +7,8 @@ import ResetPassword from './component/pages/Registration-pages/ResetPasswoord/r
 import EnterOTPPage from './component/pages/Registration-pages/OTP/otp';
 import EnterNewPassword from './component/pages/Registration-pages/ResetPasswoord/newPassword';
 import {Routes, Route} from 'react-router-dom'
-import VerifyAccount from './component/pages/Registration-pages/verification/AccountVerificationPage(OTP)/verifyAccount';
+import VerifyAccount from './component/pages/Registration-pages/verification/AccountVerificationPage(OTP)/VerifyAccount';
+import DashBoardBackGround from "../src/reusables-components/DashBoards/DashBoard";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/reset-password' element = {<ResetPassword />} />
         <Route exact path='/get-otp' element = {<EnterOTPPage />} />
         <Route exact path='/new-password' element = {<EnterNewPassword />} />
+        <Route exact path='/welcome-page' element = {<DashBoardBackGround />} />
     </Routes>
   );
   ;

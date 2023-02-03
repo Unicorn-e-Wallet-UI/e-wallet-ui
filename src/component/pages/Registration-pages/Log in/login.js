@@ -5,6 +5,8 @@ import RButtons from "../../../../reusables-components/buttons/button";
 import './login.css';
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const LoginPage = () => {
 
@@ -12,8 +14,9 @@ const LoginPage = () => {
         emailAddress:"",
         password:"",
     });
+    const navigate = useNavigate();
 
-    const loginUrl = "https://ff2b-154-113-161-131.eu.ngrok.io/api/v1/user/login";
+    const loginUrl = "https://b6b1-154-113-161-131.eu.ngrok.io/api/v1/user/login";
 
     const handleChange = (event) => {
             const {name, value} = event.target;  
@@ -27,7 +30,11 @@ const LoginPage = () => {
         e.preventDefault();
 
         axios.post(loginUrl, loginData)
-            .then((res) => console.log(res))
+            .then((res) => {
+                if (res.status === 200){
+                    navigate("/welcome-page");
+                }
+            })
             .catch((err) => console.log(err))
     }
 

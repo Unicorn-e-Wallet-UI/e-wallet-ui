@@ -18,8 +18,8 @@ const SignUpPage = () => {
         password:"",
     });
 
-    const SignupUrl = "http://localhost:3000/Signup";
-    // const SignupUrl = "https://ed39-154-113-161-131.eu.ngrok.io/api/v1/registration/register";
+    // const SignupUrl = "http://localhost:3000/Signup";
+    const SignupUrl = "https://b6b1-154-113-161-131.eu.ngrok.io/api/v1/registration/register";
 
     const handleChange = (event) => {
         const {name, value} = event.target;  
@@ -47,7 +47,7 @@ const SignUpPage = () => {
         axios.post(SignupUrl, signupData)
             .then((res) =>  {
                 console.log(res);
-                if (res.status === 201){
+                if (res.data.statusCode === 200){
                     console.log(res)
                     setModalStatus(true)
                     setTimeout(()=> navigate("/verify-account", {state: {data:signupData.emailAddress}}), 2000);

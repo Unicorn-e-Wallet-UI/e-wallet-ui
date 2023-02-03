@@ -3,11 +3,13 @@ import imageOne from "../../../../../assets/images/KYC-One.png";
 import Container from "../../../../../reusables-components/container/container";
 import InputFields from "../../../../../reusables-components/input/input";
 import KycHeader from "../../../../../reusables-components/kyc-header/kycHeader";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./kycPageOne.css"
 import RegistrationPageTwo from "../kycFormsPageTwo/kycPageTwo";
 
 const RegistrationPageOne = () => {
+  const location = useLocation()
+  console.log(location.state.userId);
 
   const [regData, setRegData] = useState({
     identification:"",
@@ -15,10 +17,12 @@ const RegistrationPageOne = () => {
     cardName: "",
     cardNumber:"",
     expiryDate:"",
-    cvv:""
+    cvv:"",
+    id:location.state.userId,
   })
 
 const [selectChange, setSelectChange] = useState("NIN");
+
 
 const handleChange = (event) => {
     event.preventDefault();
